@@ -43,7 +43,7 @@ plt.subplot(1,2,2)
 plt.imshow(framObjTrain['mask'][1])
 plt.show()
 
-def SRCNN_syj():
+def SRCNN():
     inputs = Input((256, 256, 3))
     x = Conv2D(64, (9, 9), padding="same", activation="relu")(inputs)
     x = Conv2D(32, (1,1), padding="same", activation="relu")(x)
@@ -53,7 +53,7 @@ def SRCNN_syj():
 
 
 # with strategy.scope():
-model = SRCNN_syj()
+model = SRCNN()
 
 model.summary()
 opt = Adam(learning_rate=1e-5)
