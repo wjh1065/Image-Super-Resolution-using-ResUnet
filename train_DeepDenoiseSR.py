@@ -55,7 +55,7 @@ from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, UpSampling2D, A
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
 
-def DeepDenoiseSR_syj():
+def DeepDenoiseSR():
     inputs = Input((256, 256, 3))
     c1 = Conv2D(64, (3, 3), activation='relu', padding='same')(inputs)
     c1 = Conv2D(64, (3, 3), activation='relu', padding='same')(c1)
@@ -89,7 +89,7 @@ def DeepDenoiseSR_syj():
 
 
 # with strategy.scope():
-model = DeepDenoiseSR_syj()
+model = DeepDenoiseSR()
 
 model.summary()
 
