@@ -9,7 +9,7 @@ Image Super Resolution using ResUnet [keras]
 ![ex_screenshot](./img/data.png)
 # 2. 비교 모델과 구현한 모델
 
-## 2.1 SR CNN
+### 2.1 SR CNN
 
 SR CNN은 2016년도 딥러닝에 Super Resolution(SR) 기술이 적용될 때 처음 적용된 모델임.
 
@@ -17,7 +17,7 @@ SR CNN은 2016년도 딥러닝에 Super Resolution(SR) 기술이 적용될 때 �
 
 ![ex_screenshot](./img/SRCNN.png)
 
-## 2.2 Deep Denoise SR CNN
+### 2.2 Deep Denoise SR CNN
 
 Deep Denoise SR CNN은 AutoEncoder에 의미있는 특성을 학습하도록 입력에 노이즈를 추가하여, 노이즈가 없는 원본 입력을 재구성하도록 학습시키는 Denoising AutoEncoder을 이용한다. 추가로, Unet의 특징인 Skip Connection을 추가하여 이미지를 좀 더 선명하게 복원하도록 해주는 모델임.
 
@@ -25,7 +25,7 @@ Deep Denoise SR CNN은 AutoEncoder에 의미있는 특성을 학습하도록 입
 
 ![ex_screenshot](./img/DeepDenoiseSRCNN.png)
 
-## 2.3 Our model [ResUnet]
+### 2.3 Our model [ResUnet]
 
 ResUnet의 베이스는 총 4번의 다운샘플링과(DownSampling), 업샘플링(Upsampling)을 진행한 Unet을 이용하고 추가적으로 잔차 유닛(Residual unit)을 이용한 모델임.
 
@@ -48,5 +48,15 @@ SSIM : 구조적유사지수(structural similarity index, SSIM)으로 이미지�
 
 > ![ex_screenshot](./img/ssim.png)
 
-# 4. 학습 곡선
+# 4. 학습 곡선 및 예측 결과
 
+## 학습 곡선
+### 좌측(SR CNN), 중간(Deep Denoise SR CNN), 우측(Our model - ResUnet)
+
+![ex_screenshot](./img/result_curve.png)
+
+### 위(SR CNN), 중간(Deep Denoise SR CNN), 아래(Our model - ResUnet)
+
+![ex_screenshot](./img/pred_SRCNN.png)
+![ex_screenshot](./img/pred_DDSRCNN.png)
+![ex_screenshot](./img/pred_ResUnet.png)
