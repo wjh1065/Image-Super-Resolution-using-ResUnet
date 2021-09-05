@@ -55,8 +55,34 @@ SSIM : 구조적유사지수(structural similarity index, SSIM)으로 이미지�
 
 ![ex_screenshot](./img/result_curve.png)
 
+## 예측 결과
 ### 위(SR CNN), 중간(Deep Denoise SR CNN), 아래(Our model - ResUnet)
 
 ![ex_screenshot](./img/pred_SRCNN.png)
 ![ex_screenshot](./img/pred_DDSRCNN.png)
 ![ex_screenshot](./img/pred_ResUnet.png)
+
+# 5. PSNR, SSIM 비교
+
+| model | PSNR | SSIM |
+|:---:|:---:|:---:|
+| 1. SR CNN | 24.8173 | 0.8007 |
+| 2. Deep Denoise SR CNN | 24.7324 | 0.8061 |
+| 3. Our model - ResUnet | 24.3193 | 0.7897 |
+
+# 6. 고찰
+
+
+구현한 모델(ResUnet)이 기존 논문 모델들보다 성능이 미세하게 낮게 나왔는데, 이는 아직 하이퍼 파라미터 튜닝을 진행하지 못한 점과, 복잡한 모델 구조와 많은 파라미터 개수로 인해 성능이 기대치 이하로 나온 것이라 예상 됨.
+
+신경망의 뉴런을 부분적으로 생략하는 __드랍아웃(Dropout), 가중치 규제 L1, L2 등 다양한 최적화 기법__ 을 사용하고  __에폭(epoch)과 학습률 설정__ 을 다시 조절한다면 성능이 더 높게 나올 것이라 생각 됨.
+
+### 참고 문헌
+
+[1] Dong, Chao, et al. "Image super-resolution using deep convolutional networks." IEEE transactions on pattern analysis and machine intelligence 38.2 (2015): 295-307.
+
+[2] Mao, Xiao-Jiao, Chunhua Shen, and Yu-Bin Yang. "Image restoration using convolutional auto-encoders with symmetric skip connections." arXiv preprint arXiv:1606.08921 (2016).
+
+[3] Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. "U-net: Convolutional networks for biomedical image segmentation." International Conference on Medical image computing and computer-assisted intervention. Springer, Cham, 2015.
+
+[4] Milletari, Fausto, Nassir Navab, and Seyed-Ahmad Ahmadi. "V-net: Fully convolutional neural networks for volumetric medical image segmentation." 2016 fourth international conference on 3D vision (3DV). IEEE, 2016.
